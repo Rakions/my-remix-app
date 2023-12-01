@@ -1,5 +1,6 @@
 import { json, type LoaderFunctionArgs, type MetaFunction } from "@remix-run/node";
 import { Link, useLoaderData } from "@remix-run/react";
+const apiKey = process.env.API;
 
 export const meta: MetaFunction = () => {
   return [{ title: "New Remix App" }, { name: "description", content: "Welcome to Remix!" }];
@@ -9,7 +10,7 @@ export async function loader({}: LoaderFunctionArgs) {
   const url = await fetch("https://api.themoviedb.org/3/trending/movie/day?language=en-US ", {
     headers: {
       accept: "application/json",
-      Authorization: `Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjMjY4NTA1ZTQyMzZmNTliNmQ4NTEyZGYyOGRkMGNkYSIsInN1YiI6IjY1NjkyMWFiNzFmMDk1MDBmZWI3ODQ5NyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.iK-9Z2z_r1spf5OTztdc7hZ3E_vQUDOz-ydMGN3DLHI`,
+      Authorization: `Bearer ${apiKey}`,
     },
   });
 
