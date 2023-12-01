@@ -5,7 +5,7 @@ export async function loader({ params }: LoaderFunctionArgs) {
   const url = await fetch(`https://api.themoviedb.org/3/movie/${params.id}?language=en-US`, {
     headers: {
       accept: "application/json",
-      Authorization: `Bearer ${process.env.DATABASE_URL}`,
+      Authorization: `Bearer ${process.env.API}`,
     },
   });
 

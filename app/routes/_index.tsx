@@ -9,7 +9,7 @@ export async function loader({}: LoaderFunctionArgs) {
   const url = await fetch("https://api.themoviedb.org/3/trending/movie/day?language=en-US ", {
     headers: {
       accept: "application/json",
-      Authorization: `Bearer ${process.env.DATABASE_URL}`,
+      Authorization: `Bearer ${process.env.API}`,
     },
   });
 
