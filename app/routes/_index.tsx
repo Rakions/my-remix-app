@@ -6,7 +6,7 @@ export const meta: MetaFunction = () => {
 };
 
 export async function loader({}: LoaderFunctionArgs) {
-  const url = await fetch("https://api.themoviedb.org/3/trending/movie/day?language=en-US ", {
+  const url = await fetch("https://api.themoviedb.org/3/trending/movie/day?language=en-US", {
     headers: {
       accept: "application/json",
       Authorization:
@@ -19,6 +19,7 @@ export async function loader({}: LoaderFunctionArgs) {
 
 export default function Index() {
   const data: any = useLoaderData();
+
   return (
     <div className="bg-white py-6 sm:py-8 lg:py-12">
       <div className="mx-auto max-w-screen-2xl px-4 md:px-8">
@@ -29,6 +30,7 @@ export default function Index() {
         </div>
 
         <div className="grid gap-4 sm:grid-cols-2 md:gap-6 lg:grid-cols-3 xl:grid-cols-4 xl:gap-8">
+          {console.log(data.results)}
           {data.results.map((movie: any, index: any) => (
             <div className="flex flex-col overflow-hidden rounded-lg border bg-white" key={index}>
               <Link
