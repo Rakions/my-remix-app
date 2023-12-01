@@ -1,12 +1,12 @@
 import { LoaderFunctionArgs, json } from "@remix-run/node";
 import { Link, Outlet, useLoaderData } from "@remix-run/react";
-const apiKey = process.env.API;
 
 export async function loader({ params }: LoaderFunctionArgs) {
   const url = await fetch(`https://api.themoviedb.org/3/movie/${params.id}?language=en-US`, {
     headers: {
       accept: "application/json",
-      Authorization: "Bearer " + apiKey,
+      Authorization:
+        "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjMjY4NTA1ZTQyMzZmNTliNmQ4NTEyZGYyOGRkMGNkYSIsInN1YiI6IjY1NjkyMWFiNzFmMDk1MDBmZWI3ODQ5NyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.iK-9Z2z_r1spf5OTztdc7hZ3E_vQUDOz-ydMGN3DLHI",
     },
   });
 
